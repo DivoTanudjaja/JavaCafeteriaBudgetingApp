@@ -1,0 +1,18 @@
+@startuml
+start
+:Clone tempCalendar to innerCalendar;
+:Format start and end dates;
+:Establish database connection;
+if (idCustomer == 1) then
+  :Execute query for all events;
+else
+  :Execute query for specific idCustomer events;
+endif
+while (ResultSet has next) is (yes)
+  :Extract event details;
+  :Determine day of the week;
+  :Update table model;
+endwhile (no)
+:Handle SQLException;
+stop
+@enduml
